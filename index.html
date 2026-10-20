@@ -12,15 +12,15 @@
 <body>
     <header>
         <nav class="container">
-            <!-- Logomarca Wordmark (Tipografia Pura) -->
+            <!-- Logomarca -->
             <a href="#" class="logo-link">
-                <!-- Certifique-se de usar o nome exato que está no GitHub (logo.png ou logo.png.png) -->
                 <img src="logo.png.png" alt="Porto | Governança e Dados" class="logo-img">
             </a>
                     
             <ul>
                 <li><a href="#riscos">O Problema</a></li>
                 <li><a href="#solucoes">Soluções</a></li>
+                <li><a href="#calculadora">Simulador</a></li>
                 <li><a href="#cases">Casos de Sucesso</a></li>
                 <li><a href="#autoridade">Perfil Executivo</a></li>
                 <li><a href="#contato" class="btn-nav">Agendar Diagnóstico</a></li>
@@ -41,6 +41,7 @@
             </div>
         </div>
 
+        <!-- Seção 1: O Problema -->
         <section id="riscos" class="section-light">
             <div class="container">
                 <div class="section-header">
@@ -67,6 +68,7 @@
             </div>
         </section>
 
+        <!-- Seção 2: Soluções -->
         <section id="solucoes" class="section-dark">
             <div class="container">
                 <div class="section-header">
@@ -93,7 +95,9 @@
                 </div>
             </div>
         </section>
-<section id="calculadora" class="section-dark">
+
+        <!-- Ferramenta Interativa 1: Calculadora de Potencial de Eficiência -->
+        <section id="calculadora" class="section-dark" style="border-top: 1px solid rgba(255, 255, 255, 0.05);">
             <div class="container">
                 <div class="section-header" style="text-align: center; max-width: 800px; margin: 0 auto 3rem auto;">
                     <h2>Calculadora de Potencial de Eficiência</h2>
@@ -121,13 +125,35 @@
                         <h3>Potencial de Resgate Anual</h3>
                         <div class="calc-total" id="calc-total-anual">R$ 234.000</div>
                         <p>Valor projetado combinando captação via PEE (Programa de Eficiência Energética) e estancamento de passivos operacionais invisíveis.</p>
-                        <!-- O link já carrega o valor exato que o cliente simulou para o seu WhatsApp -->
                         <a href="https://wa.me/5541992452780?text=Ol%C3%A1%20Thiago,%20utilizei%20a%20calculadora%20no%20seu%20site%20e%20gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20sobre%20o%20meu%20potencial%20de%20economia." id="calc-btn" target="_blank" class="btn-primary mt-4">Validar Meu Potencial de Otimização</a>
                     </div>
                 </div>
             </div>
         </section>
-    <section id="cases" class="section-light">
+
+        <!-- Ferramenta Interativa 2: Dashboard Executivo Embutido -->
+        <section id="dashboard" class="section-light">
+            <div class="container">
+                <div class="section-header" style="text-align: center; max-width: 800px; margin: 0 auto 3rem auto;">
+                    <h2>Inteligência Financeira na Prática</h2>
+                    <p>Navegue pelo painel interativo abaixo. É exatamente este nível de clareza e previsibilidade (Ativo Circulante, DRE e Evolução de Caixa) que a sua diretoria terá acesso em tempo real para embasar decisões e auditorias.</p>
+                </div>
+                
+                <div class="dashboard-wrapper">
+                    <div class="iframe-container">
+                        <!-- IMPORTANTE: Substitua o link em 'src' pelo link público do seu Power BI -->
+                        <iframe title="Dashboard de Governança" src="https://app.powerbi.com/view?r=SUA_URL_PUBLICA_AQUI" frameborder="0" allowFullScreen="true"></iframe>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="https://wa.me/5541992452780?text=Ol%C3%A1%20Thiago,%20naveguei%20pelo%20dashboard%20no%20seu%20site%20e%20quero%20implementar%20este%20n%C3%ADvel%20de%20visibilidade%20financeira%20na%20minha%20institui%C3%A7%C3%A3o." target="_blank" class="btn-primary">Quero Este Nível de Controle na Minha Instituição</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 3: Casos de Sucesso -->
+        <section id="cases" class="section-light" style="padding-top: 2rem;">
             <div class="container">
                 <div class="section-header">
                     <h2>Resultados Comprovados em Escala</h2>
@@ -226,7 +252,9 @@
                 <!-- Fim do Case 02 -->
             </div>
         </section>
-<section id="autoridade" class="section-light">
+
+        <!-- Seção 4: Perfil Executivo -->
+        <section id="autoridade" class="section-light">
             <div class="container">
                 <div class="perfil-layout">
                     <!-- Coluna da Fotografia -->
@@ -253,6 +281,7 @@
             </div>
         </section>
       
+        <!-- Seção 5: Contato / CTA Final -->
         <section id="contato" class="section-cta">
             <div class="container">
                 <h2>Otimize a Governança da Sua Instituição</h2>
@@ -267,47 +296,15 @@
             <p>&copy; 2026 Thiago Porto | Governança & Dados.</p>
         </div>
     </footer>
-</body>
+
+    <!-- Motor Matemático da Calculadora -->
     <script>
-        // Formatação de Moeda Brasileira
         const formatarMoeda = (valor) => {
             return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(valor);
         };
 
-        // Captura dos elementos
         const rangeEnergia = document.getElementById('range-energia');
         const rangeOperacao = document.getElementById('range-operacao');
         const displayEnergia = document.getElementById('display-energia');
         const displayOperacao = document.getElementById('display-operacao');
         const calcTotal = document.getElementById('calc-total-anual');
-        const calcBtn = document.getElementById('calc-btn');
-
-        // Função Matemática de Otimização
-        const calcularPotencial = () => {
-            const energiaMensal = Number(rangeEnergia.value);
-            const operacaoMensal = Number(rangeOperacao.value);
-
-            // Atualiza os textos dos sliders em tempo real
-            displayEnergia.textContent = formatarMoeda(energiaMensal);
-            displayOperacao.textContent = formatarMoeda(operacaoMensal);
-
-            // Cálculo Baseado nos Cases (80% energia + 15% operação) * 12 meses
-            const economiaEnergiaAnual = (energiaMensal * 0.8) * 12;
-            const economiaOperacaoAnual = (operacaoMensal * 0.15) * 12;
-            const resgateTotalAnual = economiaEnergiaAnual + economiaOperacaoAnual;
-
-            // Atualiza o painel final e o link do WhatsApp com o valor
-            calcTotal.textContent = formatarMoeda(resgateTotalAnual);
-            
-            const msgWhatsApp = `Olá Thiago, simulei na calculadora um potencial de resgate de ${formatarMoeda(resgateTotalAnual)} anuais. Gostaria de agendar o diagnóstico para a minha instituição.`;
-            calcBtn.href = `https://wa.me/5541992452780?text=${encodeURIComponent(msgWhatsApp)}`;
-        };
-
-        // Ativa a escuta de eventos para atualizar instantaneamente ao mover a barra
-        rangeEnergia.addEventListener('input', calcularPotencial);
-        rangeOperacao.addEventListener('input', calcularPotencial);
-
-        // Dispara o cálculo inicial
-        calcularPotencial();
-    </script>
-</html>
