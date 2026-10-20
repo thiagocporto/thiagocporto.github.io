@@ -315,3 +315,195 @@ footer {
         padding: 2rem;
     }
 }
+/* Estilos do Estudo de Caso (Portfolio) */
+.case-card {
+    background-color: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 3rem;
+    box-shadow: 0 20px 40px rgba(10, 25, 47, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+}
+
+.case-header {
+    margin-bottom: 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 2rem;
+}
+
+.badge-case {
+    display: inline-block;
+    background-color: rgba(0, 184, 148, 0.1);
+    color: var(--brand-accent);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.case-header h3 {
+    font-size: 2rem;
+    color: #FFFFFF;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.case-subtitle {
+    font-size: 1.1rem;
+    color: var(--brand-accent);
+}
+
+.case-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
+}
+
+.case-column h4 {
+    font-size: 1.2rem;
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.mt-4 {
+    margin-top: 2rem;
+}
+
+.case-column p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.case-list {
+    list-style-type: none;
+    color: var(--text-primary);
+}
+
+.case-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.case-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--brand-accent);
+}
+
+.case-results {
+    background-color: rgba(10, 25, 47, 0.5);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 184, 148, 0.2);
+}
+
+.result-highlight {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.result-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--brand-accent);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+}
+
+.result-label {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.btn-outline {
+    display: inline-block;
+    border: 1px solid var(--text-secondary);
+    color: var(--text-primary);
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    transition: all 0.3s;
+}
+
+.btn-outline:hover {
+    border-color: #FFFFFF;
+    color: #FFFFFF;
+    background-color: rgba(255,255,255,0.05);
+}
+
+.case-replication {
+    background-color: var(--bg-main);
+    padding: 2.5rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.case-replication h4 {
+    color: #FFFFFF;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.case-replication p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.steps-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.step-item {
+    background-color: rgba(255,255,255,0.05);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+.step-arrow {
+    color: var(--brand-accent);
+}
+
+.case-legal {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+    font-size: 0.8rem;
+    color: rgba(136, 146, 176, 0.6);
+    line-height: 1.4;
+}
+
+/* Responsividade do Portfolio */
+@media (max-width: 900px) {
+    .case-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .steps-row {
+        flex-direction: column;
+    }
+    .step-arrow {
+        transform: rotate(90deg);
+    }
+    .case-card {
+        padding: 2rem 1.5rem;
+    }
+}
