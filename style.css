@@ -55,16 +55,22 @@ header nav.container {
     padding-right: 5%;
 }
 
-.logo {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--text-primary);
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
 }
 
-.logo span {
-    color: var(--brand-accent);
-    font-weight: 400;
-    font-size: 1rem;
+.logo-img {
+    height: 45px; /* Define uma altura elegante e alinhada com os botões do menu */
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05); /* Ligeiro efeito de zoom ao passar o rato */
+}
 }
 
 nav ul {
