@@ -3,88 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thiago Porto | Dados e Governança para o Terceiro Setor</title>
+    <title>Thiago Porto | Governança e Inteligência de Dados</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <nav>
-            <div class="logo">Thiago Porto</div>
+        <nav class="container">
+            <div class="logo">Porto <span>| Governança & Dados</span></div>
             <ul>
-                <li><a href="#problema">O Desafio</a></li>
-                <li><a href="#solucoes">Soluções</a></li>
+                <li><a href="#riscos">O Problema</a></li>
+                <li><a href="#solucoes">Arquitetura de Soluções</a></li>
                 <li><a href="#autoridade">Perfil Executivo</a></li>
-                <li><a href="#contato" class="btn-nav">Falar com Thiago</a></li>
+                <li><a href="#contato" class="btn-nav">Agendar Diagnóstico</a></li>
             </ul>
         </nav>
         
-        <div class="hero">
-            <h1>Governança de Dados e Automação para o Terceiro Setor</h1>
-            <p>Transformo gargalos operacionais em eficiência executiva para OSCs, Conselhos de Direitos e Hospitais Filantrópicos através da automação de processos e inteligência financeira.</p>
-            <a href="#contato" class="btn-primary">Agendar Diagnóstico Estratégico</a>
+        <div class="hero container">
+            <div class="hero-content">
+                <span class="badge">Consultoria Executiva para o Terceiro Setor e Saúde</span>
+                <h1>O fim do desperdício de recursos por ineficiência de dados.</h1>
+                <p>Transforme planilhas isoladas e processos manuais em um ecossistema automatizado. Estruturo a inteligência financeira e a captação de recursos da sua instituição para garantir conformidade em auditorias e previsibilidade de caixa.</p>
+                <div class="hero-actions">
+                    <a href="#contato" class="btn-primary">Avaliar Operação da Minha Instituição</a>
+                </div>
+            </div>
         </div>
     </header>
 
     <main>
-        <section id="problema" class="section-light">
-            <h2>O Custo da Ineficiência Tecnológica</h2>
-            <p class="subtitle">Instituições de impacto social perdem milhares de reais e horas de trabalho produtivo devido a processos manuais.</p>
-            <div class="grid-3">
-                <div class="card-sintoma">
-                    <h3>Perda de Editais</h3>
-                    <p>Falta de monitoramento em tempo real de chamamentos públicos e verbas governamentais.</p>
+        <section id="riscos" class="section-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2>O Custo Invisível da Gestão Analógica</h2>
+                    <p>Instituições sociais perdem fomento não por falta de impacto, mas por falhas de monitoramento e prestação de contas.</p>
                 </div>
-                <div class="card-sintoma">
-                    <h3>Dados Fragmentados</h3>
-                    <p>Dificuldade na prestação de contas por conta de relatórios lentos e planilhas desconexas.</p>
-                </div>
-                <div class="card-sintoma">
-                    <h3>Sobrecarga Administrativa</h3>
-                    <p>Equipes de captação e gestão gastando tempo com triagem de dados em vez de relacionamento.</p>
+                <div class="grid-3">
+                    <div class="card-risco">
+                        <div class="icon-box">01</div>
+                        <h3>Perda de Editais de Fomento</h3>
+                        <p>Processos manuais de busca no Diário Oficial e portais ministeriais resultam em prazos perdidos e milhares de reais deixados na mesa.</p>
+                    </div>
+                    <div class="card-risco">
+                        <div class="icon-box">02</div>
+                        <h3>Vulnerabilidade em Auditorias</h3>
+                        <p>Dados financeiros descentralizados dificultam o cumprimento rigoroso do MROSC e expõem a diretoria a riscos de inconformidade.</p>
+                    </div>
+                    <div class="card-risco">
+                        <div class="icon-box">03</div>
+                        <h3>Asfixia Operacional</h3>
+                        <p>Equipes de captação e diretoria dedicam até 40% do seu tempo na triagem de informações que deveriam fluir automaticamente.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="solucoes" class="section-dark">
-            <h2>Engenharia de Dados Aplicada à Gestão Social</h2>
-            <div class="grid-3">
-                <div class="card-solucao">
-                    <h3>Monitoramento Automatizado</h3>
-                    <p>Desenvolvimento de robôs integrados via APIs e Pipedream para rastrear editais (como os do MDS) e enviar alertas imediatos no Telegram da sua diretoria.</p>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Arquitetura de Alta Performance</h2>
+                    <p>Soluções técnicas desenhadas sob medida para organizações de impacto e saúde filantrópica.</p>
                 </div>
-                <div class="card-solucao">
-                    <h3>Inteligência Financeira</h3>
-                    <p>Modelagem de dados econômicos e painéis em Power BI conectados ao ERP da sua instituição, garantindo transparência em tempo real para auditorias.</p>
-                </div>
-                <div class="card-solucao">
-                    <h3>Eficiência Administrativa</h3>
-                    <p>Reestruturação de fluxos de trabalho (workflows) e integração de sistemas em nuvem para eliminar tarefas repetitivas e garantir conformidade regulatória.</p>
+                <div class="grid-2">
+                    <div class="card-solucao">
+                        <h3>Monitoramento Automatizado de Verbas</h3>
+                        <p>Implementação de robôs que rastreiam em tempo real publicações do MDS e chamamentos públicos, entregando alertas já filtrados diretamente no Telegram ou WhatsApp da diretoria.</p>
+                        <ul class="check-list">
+                            <li>✓ Integração via webhooks.</li>
+                            <li>✓ Eliminação de triagem manual diária.</li>
+                        </ul>
+                    </div>
+                    <div class="card-solucao">
+                        <h3>Painéis de Transparência e BI</h3>
+                        <p>Modelagem econômica que conecta o ERP da sua instituição a dashboards executivos em Power BI. Gestão de caixa e prestação de contas visíveis em poucos cliques.</p>
+                        <ul class="check-list">
+                            <li>✓ Auditoria facilitada de despesas e doações.</li>
+                            <li>✓ Decisão baseada em indicadores cruzados.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="autoridade" class="section-light">
-            <div class="perfil-container">
+            <div class="container perfil-container">
                 <div class="perfil-texto">
-                    <h2>Visão de Par para Par</h2>
-                    <p>A tecnologia só gera resultados quando implementada por quem compreende a dinâmica institucional por dentro.</p>
-                    <p>Com formação em Ciências Econômicas e atuação direta na alta gestão — servindo como Vice-Diretor de instituição social e assumindo a vice-presidência de conselhos municipais (CMDCA) —, conheço o rigor exigido na alocação de recursos, na prestação de contas e na governança corporativa.</p>
-                    <p>Minha trajetória na gestão executiva de hospitais filantrópicos e organizações de desenvolvimento social embasa cada linha de código e cada automação que estruturo para os meus clientes.</p>
+                    <h2>Por que confiam na minha infraestrutura?</h2>
+                    <p><strong>A tecnologia só é útil quando aplicada por quem compreende a cadeira da presidência.</strong></p>
+                    <p>Diferente de agências de software tradicionais, minha abordagem une o domínio profundo em engenharia de dados (APIs, Node.js, automações complexas) com a realidade tática da gestão do Terceiro Setor.</p>
+                    <p>Como economista de formação, com atuação na Vice-Direção de instituições filantrópicas e assento na vice-presidência de conselhos de direitos municipais, entendo o peso jurídico de uma prestação de contas e a urgência de otimizar cada centavo captado.</p>
+                    <p>A solução que desenho para a sua instituição é a mesma que utilizo para escalar operações sob minha responsabilidade diretiva.</p>
                 </div>
             </div>
         </section>
 
         <section id="contato" class="section-cta">
-            <h2>Pronto para otimizar a operação da sua instituição?</h2>
-            <p>Vamos mapear os gargalos do seu fluxo de dados e desenhar um plano de ação objetivo.</p>
-            <a href="https://wa.me/5541992452780" target="_blank" class="btn-primary">Iniciar Conversa no WhatsApp</a>
+            <div class="container">
+                <h2>Otimize a Governança da Sua Instituição</h2>
+                <p>Agende uma reunião estratégica para mapearmos os gargalos de dados e automação do seu fluxo operacional. Sem compromisso, focado em resultados rápidos.</p>
+                <!-- IMPORTANTE: Substitua o número abaixo pelo seu contato real -->
+                <a href="https://wa.me/5541900000000" target="_blank" class="btn-primary btn-large">Falar com Thiago Porto no WhatsApp</a>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Thiago Porto. Todos os direitos reservados.</p>
+        <div class="container">
+            <p>&copy; 2026 Thiago Porto | Governança & Dados. CNPJ: XX.XXX.XXX/XXXX-XX.</p>
+        </div>
     </footer>
-
-    <script src="script.js"></script>
 </body>
-</html> 
+</html>
