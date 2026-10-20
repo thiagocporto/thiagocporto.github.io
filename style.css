@@ -19,11 +19,9 @@
     font-family: 'Inter', sans-serif;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
-body {
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Esta é a regra de ouro: impede qualquer scroll horizontal ou quebra lateral */
     background-color: var(--bg-main);
     color: var(--text-primary);
     line-height: 1.6;
@@ -35,6 +33,25 @@ body {
     padding: 0 5%;
 }
 
+/* Navegação Institucional */
+header {
+    width: 100vw; /* Força o cabeçalho a ter 100% da largura visual da janela */
+    background-color: rgba(10, 25, 47, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0; /* Ancra o cabeçalho exatamente na margem esquerda */
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    width: 100%;
+}
 /* Navegação Institucional */
 header nav {
     display: flex;
