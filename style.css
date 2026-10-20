@@ -286,10 +286,49 @@ section h2 {
 }
 
 /* Estilos do Estudo de Caso (Portfolio) */
+/* Estilos do Estudo de Caso (Portfolio) */
 .case-card {
     background-color: var(--bg-secondary);
     border-radius: 12px;
     padding: 3rem;
     box-shadow: 0 20px 40px rgba(10, 25, 47, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    color
+    color: var(--text-primary);
+}
+
+/* Força o contraste dos textos dentro do cartão escuro */
+.case-card h3, 
+.case-card h4, 
+.case-card p, 
+.case-card li,
+.case-card .case-subtitle {
+    color: #FFFFFF;
+}
+
+.case-card .case-subtitle {
+    color: var(--brand-accent); /* Verde destaque para o subtítulo */
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+.case-card .case-list li {
+    color: var(--text-primary);
+}
+
+.case-header {
+    margin-bottom: 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 2rem;
+}
+
+.badge-case {
+    display: inline-block;
+    background-color: rgba(0, 184, 148, 0.1);
+    color: var(--brand-accent);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+}
