@@ -268,4 +268,46 @@
         </div>
     </footer>
 </body>
+    <script>
+        // Formatação de Moeda Brasileira
+        const formatarMoeda = (valor) => {
+            return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(valor);
+        };
+
+        // Captura dos elementos
+        const rangeEnergia = document.getElementById('range-energia');
+        const rangeOperacao = document.getElementById('range-operacao');
+        const displayEnergia = document.getElementById('display-energia');
+        const displayOperacao = document.getElementById('display-operacao');
+        const calcTotal = document.getElementById('calc-total-anual');
+        const calcBtn = document.getElementById('calc-btn');
+
+        // Função Matemática de Otimização
+        const calcularPotencial = () => {
+            const energiaMensal = Number(rangeEnergia.value);
+            const operacaoMensal = Number(rangeOperacao.value);
+
+            // Atualiza os textos dos sliders em tempo real
+            displayEnergia.textContent = formatarMoeda(energiaMensal);
+            displayOperacao.textContent = formatarMoeda(operacaoMensal);
+
+            // Cálculo Baseado nos Cases (80% energia + 15% operação) * 12 meses
+            const economiaEnergiaAnual = (energiaMensal * 0.8) * 12;
+            const economiaOperacaoAnual = (operacaoMensal * 0.15) * 12;
+            const resgateTotalAnual = economiaEnergiaAnual + economiaOperacaoAnual;
+
+            // Atualiza o painel final e o link do WhatsApp com o valor
+            calcTotal.textContent = formatarMoeda(resgateTotalAnual);
+            
+            const msgWhatsApp = `Olá Thiago, simulei na calculadora um potencial de resgate de ${formatarMoeda(resgateTotalAnual)} anuais. Gostaria de agendar o diagnóstico para a minha instituição.`;
+            calcBtn.href = `https://wa.me/5541992452780?text=${encodeURIComponent(msgWhatsApp)}`;
+        };
+
+        // Ativa a escuta de eventos para atualizar instantaneamente ao mover a barra
+        rangeEnergia.addEventListener('input', calcularPotencial);
+        rangeOperacao.addEventListener('input', calcularPotencial);
+
+        // Dispara o cálculo inicial
+        calcularPotencial();
+    </script>
 </html>
