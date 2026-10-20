@@ -36,11 +36,12 @@ body {
 }
 
 /* Navegação Institucional */
+/* Navegação Institucional */
 header nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 0;
+    padding: 1rem 0;
     background-color: rgba(10, 25, 47, 0.95);
     backdrop-filter: blur(10px);
     position: fixed;
@@ -59,25 +60,33 @@ header nav.container {
     display: flex;
     align-items: center;
     text-decoration: none;
+    flex-shrink: 0; /* Proíbe o navegador de esmagar o logo */
+    margin-right: 20px;
 }
 
 .logo-img {
-    height: 45px; /* Define uma altura elegante e alinhada com os botões do menu */
+    height: 40px; /* Força uma altura executiva e elegante */
     width: auto;
+    max-width: 250px; /* Limita a largura para não empurrar os botões */
     object-fit: contain;
     transition: transform 0.3s ease;
 }
 
 .logo-img:hover {
-    transform: scale(1.05); /* Ligeiro efeito de zoom ao passar o rato */
-}
+    transform: scale(1.02);
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem; /* Espaçamento ligeiramente ajustado */
     align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    white-space: nowrap; /* IMPEDE categoricamente que o texto quebre de linha */
 }
 
 nav a {
@@ -86,6 +95,7 @@ nav a {
     font-weight: 500;
     font-size: 0.9rem;
     transition: color 0.3s;
+    white-space: nowrap; 
 }
 
 nav a:hover {
@@ -95,15 +105,15 @@ nav a:hover {
 .btn-nav {
     border: 1px solid var(--brand-accent);
     color: var(--brand-accent);
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 1.2rem;
     border-radius: 4px;
     transition: all 0.3s;
+    white-space: nowrap; /* Garante que o Agendar Diagnóstico fica numa linha só */
 }
 
 .btn-nav:hover {
     background-color: rgba(0, 184, 148, 0.1);
 }
-
 /* Hero Section (A Primeira Dobra) */
 .hero {
     min-height: 100vh;
