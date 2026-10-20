@@ -33,6 +33,11 @@ html, body {
     padding: 0 5%;
 }
 
+/* Afasta todo o conteúdo para baixo, saindo de debaixo do cabeçalho fixo */
+main {
+    padding-top: 90px;
+}
+
 /* Navegação Institucional */
 header {
     width: 100vw; /* Força o cabeçalho a ter 100% da largura visual da janela */
