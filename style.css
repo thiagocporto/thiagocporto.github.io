@@ -63,35 +63,16 @@ header nav.container {
     margin-right: 20px;
 }
 
-.logo-wordmark {
-    display: flex;
-    align-items: center;
+.logo-img {
+    height: 45px; /* Define a altura executiva perfeita */
+    width: auto;
+    max-width: 280px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
 }
 
-.logo-wordmark .nome {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: #FFFFFF;
-    letter-spacing: -1px;
-    text-transform: uppercase;
-    line-height: 1;
-}
-
-.logo-wordmark .divider {
-    color: #00B894;
-    font-size: 2rem;
-    margin: 0 12px;
-    font-weight: 300;
-    line-height: 1;
-}
-
-.logo-wordmark .subtext {
-    font-size: 0.75rem;
-    font-weight: 400;
-    color: #8892B0;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    line-height: 1.2;
+.logo-img:hover {
+    transform: scale(1.02);
 }
 
 nav ul {
