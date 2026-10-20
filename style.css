@@ -59,16 +59,40 @@ header nav.container {
     display: flex;
     align-items: center;
     text-decoration: none;
-    flex-shrink: 0; /* Proíbe o navegador de esmagar o logo */
+    flex-shrink: 0;
     margin-right: 20px;
 }
 
-.logo-img {
-    height: 40px; /* Força uma altura executiva e elegante */
-    width: auto;
-    max-width: 250px; /* Limita a largura para não empurrar os botões */
-    object-fit: contain;
-    transition: transform 0.3s ease;
+.logo-wordmark {
+    display: flex;
+    align-items: center;
+}
+
+.logo-wordmark .nome {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.logo-wordmark .divider {
+    color: #00B894;
+    font-size: 2rem;
+    margin: 0 12px;
+    font-weight: 300;
+    line-height: 1;
+}
+
+.logo-wordmark .subtext {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: #8892B0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
 }
 
 .logo-img:hover {
