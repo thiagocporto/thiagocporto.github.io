@@ -107,4 +107,242 @@
                 <div class="calc-wrapper">
                     <div class="calc-controls">
                         <div class="calc-input-group">
-                            <label>Custo Mensal com Energia Elétrica
+                            <label>Custo Mensal com Energia Elétrica</label>
+                            <span class="calc-display" id="display-energia">R$ 15.000</span>
+                            <input type="range" id="range-energia" min="0" max="100000" step="1000" value="15000">
+                        </div>
+                        <div class="calc-input-group">
+                            <label>Despesas Operacionais / Folha Mensal</label>
+                            <span class="calc-display" id="display-operacao">R$ 50.000</span>
+                            <input type="range" id="range-operacao" min="0" max="500000" step="5000" value="50000">
+                        </div>
+                    </div>
+
+                    <div class="calc-result-board">
+                        <h3>Potencial de Resgate Anual</h3>
+                        <div class="calc-total" id="calc-total-anual">R$ 234.000</div>
+                        <p>Valor projetado combinando captação via PEE e estancamento de passivos operacionais invisíveis.</p>
+                        <!-- A calculadora aponta diretamente para o formulário de elegibilidade -->
+                        <a href="#elegibilidade" class="btn-primary mt-4">Validar Meu Potencial de Otimização</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ferramenta Interativa 2: Dashboard Embutido -->
+        <section id="dashboard" class="section-light">
+            <div class="container">
+                <div class="section-header" style="text-align: center; max-width: 800px; margin: 0 auto 3rem auto;">
+                    <h2>Inteligência Financeira na Prática</h2>
+                    <p>Navegue pelo painel interativo abaixo. É exatamente este nível de clareza e previsibilidade (Ativo Circulante, DRE e Evolução de Caixa) que a sua diretoria terá acesso em tempo real para embasar decisões e auditorias.</p>
+                </div>
+                
+                <div class="dashboard-wrapper">
+                    <div class="iframe-container">
+                        <iframe title="Dashboard de Governança" src="https://datastudio.google.com/embed/reporting/c41ce677-1e40-43ff-a4be-539d4b408ff3/page/zaoBG" frameborder="0" allowFullScreen="true"></iframe>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 3rem;">
+                    <!-- O botão do dashboard aponta para o formulário -->
+                    <a href="#elegibilidade" class="btn-primary">Quero Este Nível de Controle na Minha Instituição</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 3: Casos de Sucesso -->
+        <section id="cases" class="section-light" style="padding-top: 2rem;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Resultados Comprovados em Escala</h2>
+                    <p>Estudos de caso reais de engenharia financeira e viabilização de projetos com recursos a fundo perdido para o Terceiro Setor.</p>
+                </div>
+
+                <!-- Case 01: San Julian -->
+                <div class="case-card">
+                    <div class="case-header">
+                        <span class="badge-case">Case de Sucesso • Saúde Filantrópica</span>
+                        <h3>Hospital San Julian: -80% na conta de luz com captação de R$ 1,3 Mi via PEE ANEEL/Copel</h3>
+                        <p class="case-subtitle">Projeto concebido, estruturado e executado por Thiago Porto em parceria técnica com a Eletron Energia.</p>
+                    </div>
+
+                    <div class="case-grid">
+                        <div class="case-column">
+                            <h4>O Desafio & O Papel Executivo</h4>
+                            <p>Atuação direta na concepção, elaboração e execução estratégica. O trabalho envolveu o diagnóstico analítico inicial, o desenho da engenharia financeira para submissão ao PEE e a gestão da implantação estrutural da usina.</p>
+                            
+                            <h4 class="mt-4">O que foi executado</h4>
+                            <ul class="case-list">
+                                <li>Substituição completa do parque de chuveiros elétricos por um sistema solar térmico central.</li>
+                                <li>Implantação de Usina Fotovoltaica composta por 606 módulos solares.</li>
+                                <li>Enquadramento regulatório e aprovação integral dos recursos a fundo perdido.</li>
+                            </ul>
+                        </div>
+
+                        <div class="case-column case-results">
+                            <h4>Resultados Alcançados</h4>
+                            <div class="result-highlight">
+                                <span class="result-number">R$ 1,3 Mi</span>
+                                <span class="result-label">Captados a fundo perdido aprovados.</span>
+                            </div>
+                            <div class="result-highlight">
+                                <span class="result-number">-80%</span>
+                                <span class="result-label">Redução no consumo.</span>
+                            </div>
+                            <div class="result-highlight">
+                                <span class="result-number">+23 ton</span>
+                                <span class="result-label">Emissões de CO2/ano evitadas na operação.</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=VxQA1CrfF8g" target="_blank" class="btn-outline">Assistir Registro (YouTube) ↗</a>
+                        </div>
+                    </div>
+
+                    <div class="case-replication">
+                        <h4>Replicação do Método Porto</h4>
+                        <p>A arquitetura e o Método San Julian são adaptados para Santas Casas, APAEs e ILPIs.</p>
+                        <!-- O Botão foi corrigido para apontar para #elegibilidade -->
+                        <a href="#elegibilidade" class="btn-primary mt-4">Solicitar Teste de Elegibilidade</a>
+                    </div>
+                </div>
+
+                <!-- Case 02: APAE -->
+                <div class="case-card" style="margin-top: 3rem;">
+                    <div class="case-header">
+                        <span class="badge-case">Case de Sucesso • Reestruturação e Turnaround</span>
+                        <h3>APAE Curitiba: Estancamento de Déficit e Crescimento de 600% no Ativo Circulante</h3>
+                        <p class="case-subtitle">Revisão profunda de modelos de negócio e implantação de centros de custo, conduzindo a instituição à geração de superávit.</p>
+                    </div>
+
+                    <div class="case-grid">
+                        <div class="case-column">
+                            <h4>O Desafio & O Papel Executivo</h4>
+                            <p>A instituição operava no escuro: a ausência de centros de custo definidos mascarava a realidade financeira. O plano de turnaround exigiu um mapeamento de fluxos rigoroso.</p>
+                            
+                            <h4 class="mt-4">O que foi executado</h4>
+                            <ul class="case-list">
+                                <li><strong>Inteligência e Modelagem de Negócios:</strong> Criação de centros de custo e revisão total do modelo da unidade de Saúde.</li>
+                                <li><strong>Redesenho Organizacional:</strong> Mapeamento da estrutura funcional e renegociação com credores.</li>
+                                <li><strong>Repactuação Governamental:</strong> O desenho de novos processos subsidiou uma negociação técnica resultando num novo contrato altamente sustentável.</li>
+                            </ul>
+                        </div>
+
+                        <div class="case-column case-results">
+                            <h4>Resultados Alcançados (2025)</h4>
+                            <div class="result-highlight">
+                                <span class="result-number">~600%</span>
+                                <span class="result-label">Crescimento do Ativo Circulante.</span>
+                            </div>
+                            <div class="result-highlight">
+                                <span class="result-number">R$ 1,6 Mi</span>
+                                <span class="result-label">Estancamento de déficit operacional anual.</span>
+                            </div>
+                            <div class="result-highlight">
+                                <span class="result-number">Zero</span>
+                                <span class="result-label">Ressalvas impeditivas. Balanço validado por Auditoria Independente.</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="case-replication" style="margin-top: 3rem;">
+                        <h4>O Seu Caixa Pode Estar Sangrando em Silêncio?</h4>
+                        <p>Descubra se a sua instituição está deixando recursos na mesa e avalie o potencial oculto de otimização financeira e reestruturação de contratos.</p>
+                        <!-- O Botão foi corrigido para apontar para #elegibilidade -->
+                        <a href="#elegibilidade" class="btn-primary mt-4">Agendar Diagnóstico de Eficiência Financeira</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+      
+        <!-- Seção 4: Perfil Executivo -->
+        <section id="autoridade" class="section-light">
+            <div class="container">
+                <div class="perfil-layout">
+                    <div class="perfil-imagem">
+                        <img src="LinkedinPhoto.jpg" alt="Fotografia Executiva de Thiago Porto" class="foto-autoridade">
+                    </div>
+
+                    <div class="perfil-texto">
+                        <h2>A tecnologia e a governança a serviço da missão social</h2>
+                        
+                        <p>Como economista com mais de 15 anos dedicados à gestão de instituições, aprendi uma lição fundamental na prática: <strong>o impacto social só sobrevive quando o caixa é protegido e a operação é transparente.</strong> A minha missão não é apenas implementar sistemas ou analisar planilhas, mas garantir que hospitais filantrópicos, associações e espaços de acolhimento continuem de portas abertas, ampliando o número de vidas transformadas sem o fantasma da insegurança financeira.</p>
+                        
+                        <p>Diferente de consultorias tecnológicas tradicionais, a minha visão foi forjada na cadeira da diretoria. Como Vice-Diretor do Patronato Santo Antônio e, anteriormente, como Diretor Executivo da APAE Curitiba, vivenciei a pressão diária de equilibrar orçamentos apertados enquanto a fila de espera por atendimento especializado só crescia. Nessas trincheiras, liderei reestruturações profundas que resgataram instituições de crises financeiras severas, destravando a capacidade da equipe para cuidar de mais pessoas de forma digna e sustentável.</p>
+                        
+                        <p>No Hospital San Julian, coordenei a captação de mais de R$ 8 milhões em recursos públicos e liderei projetos de inovação que cortaram drasticamente as despesas mensais, provando que é possível modernizar a saúde filantrópica com inteligência, rigor na prestação de contas e parcerias sólidas.</p>
+                        
+                        <p><strong>Por que a inteligência de dados é essencial para o Terceiro Setor?</strong></p>
+                        <p>Quando automatizo fluxos ou crio painéis gerenciais em tempo real, o objetivo não é a tecnologia pela tecnologia. O verdadeiro valor é dar aos conselheiros e presidentes a tranquilidade de saber exatamente onde cada centavo de doação ou convênio foi investido. É eliminar as horas perdidas em processos burocráticos manuais, devolvendo a equipe técnica ao que realmente importa: o relacionamento humano, a captação de novos parceiros e o impacto na ponta.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ferramenta Interativa 3: Formulário de Elegibilidade (O Funil) -->
+        <section id="elegibilidade" class="section-dark" style="border-top: 1px solid rgba(255, 255, 255, 0.05);">
+            <div class="container">
+                <div class="section-header" style="text-align: center; max-width: 800px; margin: 0 auto 3rem auto;">
+                    <h2>Teste de Elegibilidade Operacional</h2>
+                    <p>Avalie a maturidade da sua instituição de forma confidencial. Ao concluir o diagnóstico abaixo, o sistema liberará o acesso direto para o meu agendamento executivo no WhatsApp.</p>
+                </div>
+                
+                <div style="max-width: 800px; margin: 0 auto; background: var(--bg-main); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(0, 184, 148, 0.2); box-shadow: 0 20px 40px rgba(10, 25, 47, 0.3);">
+                    <!-- Seu Tally Oficial Embutido -->
+                    <iframe data-tally-src="https://tally.so/embed/NqpL4G?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="350" frameborder="0" marginheight="0" marginwidth="0" title="Diagnóstico de Maturidade Operacional"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 5: Contato / CTA Final -->
+        <section id="contato" class="section-cta">
+            <div class="container">
+                <h2>Otimize a Governança da Sua Instituição</h2>
+                <p>Mapearemos os gargalos de dados e automação do seu fluxo operacional. Sem compromisso, focado em resultados rápidos.</p>
+                <!-- O botão final também obriga a passar pela triagem -->
+                <a href="#elegibilidade" class="btn-primary btn-large">Iniciar Triagem para Agendamento</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Thiago Porto | Governança & Dados. CNPJ: XX.XXX.XXX/XXXX-XX.</p>
+        </div>
+    </footer>
+
+    <!-- Motor Matemático da Calculadora -->
+    <script>
+        const formatarMoeda = (valor) => {
+            return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(valor);
+        };
+
+        const rangeEnergia = document.getElementById('range-energia');
+        const rangeOperacao = document.getElementById('range-operacao');
+        const displayEnergia = document.getElementById('display-energia');
+        const displayOperacao = document.getElementById('display-operacao');
+        const calcTotal = document.getElementById('calc-total-anual');
+
+        const calcularPotencial = () => {
+            const energiaMensal = Number(rangeEnergia.value);
+            const operacaoMensal = Number(rangeOperacao.value);
+
+            displayEnergia.textContent = formatarMoeda(energiaMensal);
+            displayOperacao.textContent = formatarMoeda(operacaoMensal);
+
+            const economiaEnergiaAnual = (energiaMensal * 0.8) * 12;
+            const economiaOperacaoAnual = (operacaoMensal * 0.15) * 12;
+            const resgateTotalAnual = economiaEnergiaAnual + economiaOperacaoAnual;
+
+            calcTotal.textContent = formatarMoeda(resgateTotalAnual);
+        };
+
+        if(rangeEnergia && rangeOperacao) {
+            rangeEnergia.addEventListener('input', calcularPotencial);
+            rangeOperacao.addEventListener('input', calcularPotencial);
+            calcularPotencial();
+        }
+    </script>
+    
+    <!-- Script obrigatório do Tally para o formulário funcionar perfeitamente -->
+    <script async src="https://tally.so/widgets/embed.js"></script>
+</body>
+</html>
