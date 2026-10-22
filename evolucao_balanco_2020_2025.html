@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Evolução do balanço patrimonial, 2020–2025</title>
+<style>
+:root{--bg:#fafaf7;--fg:#1d1d1b;--mut:#6b6b65;--card:#ffffff;--line:#e4e2da;--ta:#2f6f9f;--pc:#c4572e;--pnc:#e9a277;--pl:#3c8d5a;}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#161614;--fg:#f0efe9;--mut:#9a9890;--card:#1f1f1c;--line:#34332f;--ta:#5a9bcf;--pc:#e0744e;--pnc:#c98a5f;--pl:#5fb27a;}}
+:root[data-theme="dark"]{--bg:#161614;--fg:#f0efe9;--mut:#9a9890;--card:#1f1f1c;--line:#34332f;--ta:#5a9bcf;--pc:#e0744e;--pnc:#c98a5f;--pl:#5fb27a;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:env(safe-area-inset-top,0px) 16px env(safe-area-inset-bottom,0px);line-height:1.5}
+main{max-width:920px;margin:0 auto;padding:24px 0 40px}
+h1{font-size:1.5rem;margin:0 0 4px}
+.sub{color:var(--mut);margin:0 0 20px;font-size:.95rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:16px}
+.controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+button{font:inherit;background:var(--ta);color:#fff;border:0;border-radius:8px;padding:8px 14px;cursor:pointer}
+button:disabled{opacity:.5;cursor:default}
+input[type=range]{flex:1;min-width:180px}
+#yearLabel{font-weight:600;min-width:48px;text-align:right;font-variant-numeric:tabular-nums}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.85rem;color:var(--mut);margin:4px 0 0}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle;background:var(--c)}
+svg{width:100%;height:auto;display:block}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.kpi small{color:var(--mut);display:block;font-size:.8rem}
+.kpi strong{font-size:1.15rem;font-variant-numeric:tabular-nums}
+.notes{font-size:.92rem;color:var(--fg)}
+.notes li{margin-bottom:8px}
+h2{font-size:1.05rem;margin:0 0 8px}
+</style>
+</head>
+<body>
+<main>
+  <h1>Evolução do balanço patrimonial, 2020–2025</h1>
+  <p class="sub">APAE de Curitiba · valores em reais, a partir dos balanços anuais (exercícios de 2021 a 2025, com 2020 do balanço de 2021)</p>
+
+  <section class="card">
+    <div class="controls">
+      <button id="play" type="button">Reproduzir</button>
+      <input id="slider" type="range" min="0" max="5" step="1" value="5" aria-label="Escolher ano">
+      <span id="yearLabel">2025</span>
+    </div>
+    <svg id="chart" viewBox="0 0 760 380" role="img" aria-label="Gráfico de linhas da evolução por ano"></svg>
+    <div class="legend">
+      <span style="--c:var(--ta)">Ativo total</span>
+      <span style="--c:var(--pc)">Passivo circulante</span>
+      <span style="--c:var(--pnc)">Passivo não circulante</span>
+      <span style="--c:var(--pl)">Patrimônio líquido</span>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 id="kpiTitle">Destaques de 2025</h2>
+    <div class="cards">
+      <div class="kpi"><small>Ativo total</small><strong id="k1">—</strong></div>
+      <div class="kpi"><small>Patrimônio líquido</small><strong id="k2">—</strong></div>
+      <div class="kpi"><small>Resultado do exercício</small><strong id="k3">—</strong></div>
+      <div class="kpi"><small>Subvenções a receber + a realizar</small><strong id="k4">—</strong></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Pontos de atenção</h2>
+    <ul class="notes">
+      <li>O salto de 2023 vem majoritariamente de convênios brutos. "Subvenções a receber" (ativo) e "Subvenções a realizar" (passivo) passam de cerca de 23 e 27 milhões. Por isso o ativo sem subvenções também está registrado na tabela de dados.</li>
+      <li>O exercício de 2023 foi reapresentado no balanço de 2024. Aqui usamos o valor reapresentado: resultado de 109.052,84 e patrimônio líquido de 1.077.129,26, no lugar de 105.076,52 e 1.073.152,94 do arquivo original.</li>
+      <li>O resultado de 2025 (4.118.520,61) é bem maior que o de anos anteriores. Vale confirmar a origem antes de apresentá-lo como tendência.</li>
+    </ul>
+  </section>
+</main>
+
+<script>
+const years = [2020, 2021, 2022, 2023, 2024, 2025];
+const D = {
+  2020: {ac:4228436.94, anc:1668921.69, pc:1067551.64, pnc:1426887.08, pl:3402919.91, res:0,          sr:0,        sa:0},
+  2021: {ac:2035508.25, anc:1843075.24, pc:1203320.57, pnc:980086.32,  pl:1695176.60, res:-1707743.31, sr:0,        sa:763452.80},
+  2022: {ac:2529986.84, anc:2342588.08, pc:3050311.34, pnc:854187.16,  pl:968076.42,  res:-727100.18,  sr:0,        sa:2081778.39},
+  2023: {ac:7006129.46, anc:23470932.10,pc:5960648.90, pnc:23439283.40,pl:1077129.26, res:109052.84,   sr:22763002.49, sa:26924430.51},
+  2024: {ac:12862279.07,anc:11397177.73,pc:14166092.98,pnc:8462070.47, pl:1631293.35, res:554164.09,   sr:14779678.93, sa:20747540.13},
+  2025: {ac:13700778.98,anc:7110506.16, pc:11732007.30,pnc:3329463.88, pl:5749813.96, res:4118520.61,  sr:7755643.49,  sa:13231496.59}
+};
+const series = [
+  {k:'ta',  label:'Ativo total',            color:'var(--ta)',  get:d=>d.ac+d.anc},
+  {k:'pc',  label:'Passivo circulante',     color:'var(--pc)',  get:d=>d.pc},
+  {k:'pnc', label:'Passivo não circulante', color:'var(--pnc)', get:d=>d.pnc},
+  {k:'pl',  label:'Patrimônio líquido',     color:'var(--pl)',  get:d=>d.pl}
+];
+const fmt = new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0});
+const fmtM = v => 'R$ ' + (v/1e6).toLocaleString('pt-BR',{minimumFractionDigits:1,maximumFractionDigits:1}) + ' mi';
+
+const W=760, H=380, P={l:70,r:20,t:20,b:40};
+const YMAX=35e6, TICKS=[0,5e6,10e6,15e6,20e6,25e6,30e6,35e6];
+const xAt = i => P.l + i*(W-P.l-P.r)/(years.length-1);
+const yAt = v => H-P.b - (v/YMAX)*(H-P.t-P.b);
+const svg = document.getElementById('chart');
+const NS='http://www.w3.org/2000/svg';
+function el(tag, attrs, parent){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e;}
+
+function draw(idx){
+  svg.innerHTML='';
+  TICKS.forEach(t=>{
+    el('line',{x1:P.l,x2:W-P.r,y1:yAt(t),y2:yAt(t),stroke:'var(--line)','stroke-width':1},svg);
+    el('text',{x:P.l-8,y:yAt(t)+4,'text-anchor':'end',fill:'var(--mut)','font-size':11},svg).textContent = t===0?'0':(t/1e6)+' mi';
+  });
+  years.forEach((y,i)=>{
+    el('text',{x:xAt(i),y:H-12,'text-anchor':'middle',fill:i<=idx?'var(--fg)':'var(--mut)','font-size':12},svg).textContent=y;
+  });
+  series.forEach(s=>{
+    const pts = years.slice(0,idx+1).map((y,i)=>[xAt(i), yAt(s.get(D[y]))]);
+    if(pts.length>1){
+      el('polyline',{points:pts.map(p=>p.join(',')).join(' '),fill:'none',stroke:s.color,'stroke-width':2.5,'stroke-linejoin':'round'},svg);
+    }
+    pts.forEach(([x,yy])=>el('circle',{cx:x,cy:yy,r:4,fill:s.color},svg));
+    if(pts.length){
+      const [x,yy]=pts[pts.length-1];
+      el('text',{x:x+8,y:yy+4,fill:s.color,'font-size':12,'font-weight':600},svg).textContent=fmtM(s.get(D[years[idx]]));
+    }
+  });
+  const d=D[years[idx]];
+  document.getElementById('yearLabel').textContent=years[idx];
+  document.getElementById('kpiTitle').textContent='Destaques de '+years[idx];
+  document.getElementById('k1').textContent=fmt.format(d.ac+d.anc);
+  document.getElementById('k2').textContent=fmt.format(d.pl);
+  document.getElementById('k3').textContent=fmt.format(d.res);
+  document.getElementById('k4').textContent=fmt.format(d.sr+d.sa);
+}
+
+const slider=document.getElementById('slider');
+const playBtn=document.getElementById('play');
+let timer=null;
+function stop(){clearInterval(timer);timer=null;playBtn.textContent='Reproduzir';}
+function play(){
+  stop();
+  let i=0; slider.value=0; draw(0);
+  playBtn.textContent='Pausar';
+  timer=setInterval(()=>{
+    i++;
+    if(i>=years.length){stop();return;}
+    slider.value=i; draw(i);
+  },1100);
+}
+playBtn.addEventListener('click',()=>{ if(timer){stop();} else {play();} });
+slider.addEventListener('input',()=>{ stop(); draw(Number(slider.value)); });
+draw(5);
+</script>
+</body>
+</html>
