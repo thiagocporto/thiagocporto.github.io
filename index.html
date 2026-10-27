@@ -3,390 +3,937 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Porto | Inteligência Institucional. Transforme dados isolados e processos manuais em um ecossistema integrado. Saúde, filantropia e setor privado.">
     <title>Porto | Inteligência Institucional</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        :root {
+            /* Cores Primárias - Porto Brand */
+            --brand-primary: #00B894;      /* Porto Teal */
+            --brand-dark: #0A192F;          /* Porto Navy */
+            --brand-slate: #8892B0;         /* Porto Slate */
+            --brand-light: #F5F7FA;         /* Porto Light */
+            
+            /* Status & Auxiliares */
+            --status-success: #26D07C;
+            --status-alert: #FFA500;
+            --status-error: #FF4757;
+            --status-info: #4A90E2;
+            
+            /* Cinzas */
+            --gray-100: #F5F7FA;
+            --gray-200: #E8EBF0;
+            --gray-300: #C5CCE0;
+            --gray-500: #8892B0;
+            --gray-700: #3C4858;
+            --gray-900: #0A192F;
+            
+            /* Texto */
+            --text-primary: #FFFFFF;
+            --text-secondary: #C5CCE0;
+            --text-dark-primary: #0A192F;
+            --text-dark-secondary: #3C4858;
+            
+            /* Background */
+            --bg-primary: #0A192F;
+            --bg-secondary: #111C3B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* HEADER & NAVEGAÇÃO */
+        header {
+            background: var(--bg-primary);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            backdrop-filter: blur(10px);
+            background-color: rgba(10, 25, 47, 0.95);
+        }
+
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+
+        .logo-link {
+            display: flex !important;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none !important;
+        }
+
+        .logo-link .nome {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-link .divider {
+            color: var(--brand-primary);
+            font-size: 1.8rem;
+            font-weight: 300;
+            opacity: 0.8;
+        }
+
+        .logo-link .subtext {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--brand-slate);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        header ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        header a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        header a:hover {
+            color: var(--brand-primary);
+        }
+
+        .btn-nav {
+            background: linear-gradient(135deg, var(--brand-primary) 0%, #00A080 100%);
+            color: var(--bg-primary) !important;
+            padding: 0.65rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 184, 148, 0.25);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 6rem 0;
+            text-align: left;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(0, 184, 148, 0.15);
+            border: 1px solid var(--brand-primary);
+            color: var(--brand-primary);
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #FFFFFF 0%, #C5CCE0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--brand-primary) 0%, #00A080 100%);
+            color: var(--bg-primary);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(0, 184, 148, 0.3);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-1px);
+        }
+
+        /* SEÇÕES */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-light {
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .section-dark {
+            background: var(--bg-primary);
+        }
+
+        .section-dark-divider {
+            border-top: 1px solid rgba(0, 184, 148, 0.2);
+            border-bottom: 1px solid rgba(0, 184, 148, 0.2);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-header p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* GRIDS */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2.5rem;
+        }
+
+        /* CARDS - RISCO */
+        .card-risco {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 184, 148, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .card-risco:hover {
+            background: rgba(0, 184, 148, 0.1);
+            border-color: var(--brand-primary);
+            transform: translateY(-4px);
+        }
+
+        .icon-box {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--brand-primary);
+            margin-bottom: 1rem;
+            background: rgba(0, 184, 148, 0.15);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        .card-risco h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--text-primary);
+        }
+
+        .card-risco p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* CARDS - SOLUÇÃO */
+        .card-solucao {
+            background: linear-gradient(135deg, rgba(0, 184, 148, 0.1) 0%, rgba(0, 184, 148, 0.05) 100%);
+            border: 1px solid rgba(0, 184, 148, 0.3);
+            border-radius: 12px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .card-solucao:hover {
+            border-color: var(--brand-primary);
+            background: linear-gradient(135deg, rgba(0, 184, 148, 0.15) 0%, rgba(0, 184, 148, 0.08) 100%);
+            transform: translateY(-6px);
+        }
+
+        .card-solucao h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--brand-primary);
+        }
+
+        .card-solucao p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .check-list {
+            list-style: none;
+        }
+
+        .check-list li {
+            font-size: 0.9rem;
+            margin-bottom: 0.6rem;
+            color: var(--text-secondary);
+        }
+
+        .check-list li::before {
+            color: var(--brand-primary);
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        /* CALCULADORA */
+        .calc-container {
+            background: rgba(0, 184, 148, 0.08);
+            border: 1px solid rgba(0, 184, 148, 0.3);
+            border-radius: 12px;
+            padding: 3rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .calc-field {
+            margin-bottom: 2.5rem;
+        }
+
+        .calc-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 0.8rem;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .calc-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--brand-primary);
+            margin-bottom: 1rem;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--brand-primary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3);
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--brand-primary);
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3);
+        }
+
+        .calc-total {
+            background: linear-gradient(135deg, var(--brand-primary) 0%, #00A080 100%);
+            color: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .calc-total-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .calc-total-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+        }
+
+        /* AUTORIDADE */
+        .card-autoridade {
+            background: rgba(0, 184, 148, 0.08);
+            border: 1px solid rgba(0, 184, 148, 0.3);
+            border-radius: 12px;
+            padding: 2.5rem;
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .card-autoridade img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid var(--brand-primary);
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-autoridade h3 {
+            font-size: 1.4rem;
+            color: var(--brand-primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .card-autoridade .titulo {
+            color: var(--brand-primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-autoridade p {
+            text-align: left;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        /* FORMULÁRIO */
+        form {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 184, 148, 0.2);
+            border-radius: 12px;
+            padding: 2.5rem;
+        }
+
+        label {
+            display: block;
+            color: var(--text-primary);
+            font-size: 0.88rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(10, 25, 47, 0.8);
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--brand-primary);
+            background: rgba(10, 25, 47, 0.95);
+            box-shadow: 0 0 0 3px rgba(0, 184, 148, 0.1);
+            outline: none;
+        }
+
+        select option {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        form > div {
+            margin-bottom: 1.5rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        footer p {
+            font-size: 0.85rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header ul {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .calc-container {
+                padding: 2rem;
+            }
+            
+            form {
+                padding: 1.5rem;
+            }
+            
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            select,
+            textarea {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header ul {
+                flex-wrap: wrap;
+                gap: 0.8rem;
+            }
+            
+            .hero {
+                padding: 3rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            .badge {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav class="container">
-            <!-- Logomarca -->
-            <a href="#" class="logo-link logo-wordmark" style="text-decoration: none; display: flex; align-items: center;">
-                <span class="nome" style="font-size: 1.6rem; font-weight: 800; color: #FFFFFF; letter-spacing: -0.5px;">PORTO</span>
-                <span class="divider" style="color: var(--brand-accent, #00B894); font-size: 1.8rem; margin: 0 10px; font-weight: 300;">|</span>
-                <span class="subtext" style="font-size: 0.8rem; font-weight: 500; color: #8892B0; letter-spacing: 2px; text-transform: uppercase; line-height: 1.2;">Inteligência<br>Institucional</span>
+            <!-- Logo Wordmark -->
+            <a href="#" class="logo-link" style="text-decoration: none;">
+                <span class="nome">PORTO</span>
+                <span class="divider">|</span>
+                <span class="subtext">Inteligência<br>Institucional</span>
             </a>
 
             <ul>
-                <li><a href="#riscos">O Problema</a></li>
+                <li><a href="#problema">O Problema</a></li>
                 <li><a href="#solucoes">Soluções</a></li>
-                <li><a href="#calculadora">Simulador</a></li>
-                <li><a href="#cases">Casos de Sucesso</a></li>
-                <li><a href="#autoridade">Perfil Executivo</a></li>
-                <li><a href="#contato" class="btn-nav">Agendar Diagnóstico</a></li>
+                <li><a href="#impacto">Impacto Comprovado</a></li>
+                <li><a href="#equipe">Equipe</a></li>
+                <li><a href="#contato" class="btn-nav">Diagnóstico Gratuito</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <!-- Hero Section (Banner Principal) -->
+        <!-- HERO SECTION -->
         <div class="hero container">
             <div class="hero-content">
-                <span class="badge">Governança & Eficiência para o Setor Privado, Saúde e Filantropia</span>
-                <h1>O fim do desperdício de recursos por ineficiência de dados.</h1>
-                <p>Transforme dados isolados e processos manuais em um ecossistema integrado de alta performance. Unimos engenharia financeira, automação analítica e governança estratégica de pessoas para blindar sua operação contra riscos, assegurar conformidade e garantir sustentabilidade de longo prazo.</p>
+                <span class="badge">Governança • People Analytics • Automação Estratégica</span>
+                <h1>Seu Maior Ativo Não É o Dinheiro.<br>É Como Você o Governa.</h1>
+                <p>Instituições de saúde, filantropia e empresas privadas perdem milhões em recursos não-capturados, riscos ocultos e equipes drenadas em tarefas manuais. Transformamos dados caóticos em inteligência acionável. Engenharia financeira + People Analytics + Agentes Virtuais = Sustentabilidade de Longo Prazo.</p>
                 <div class="hero-actions">
-                    <a href="#contato" class="btn-primary">Avaliar Operação da Minha Instituição</a>
+                    <a href="#contato" class="btn-primary">Solicitar Diagnóstico</a>
                 </div>
             </div>
         </div>
 
-        <!-- Seção 1: O Problema -->
-        <section id="riscos" class="section-light">
+        <!-- SEÇÃO 1: O PROBLEMA -->
+        <section id="problema" class="section-light">
             <div class="container">
                 <div class="section-header">
-                    <h2>O Custo Invisível da Gestão Analógica</h2>
-                    <p>Instituições sociais perdem fomento não por falta de impacto, mas por falhas de monitoramento e prestação de contas.</p>
+                    <h2>O Custo Invisível da Ineficiência</h2>
+                    <p>Não é falta de impacto. É falta de visibilidade e controle. Veja o que pode estar custando sua instituição.</p>
                 </div>
+                
+                <div class="grid-3">
+                    <div class="card-risco">
+                        <div class="icon-box">40%</div>
+                        <h3>Do Tempo de Liderança Desperdiçado</h3>
+                        <p>Equipes de captação, diretoria e gestão dedicam até 40% do tempo em triagem manual de informações que deveriam fluir automaticamente. Isso é inteligência saindo pela porta.</p>
+                    </div>
+                    <div class="card-risco">
+                        <div class="icon-box" style="font-size: 1.8rem; line-height: 1.2;">R$ 330k</div>
+                        <h3>Em Passivos Ocultos</h3>
+                        <p>Desalinhamento funcional, ausência de gestão preditiva e vulnerabilidades em MROSC/auditorias custam rescisões, retrabalho, TACs e multas que você não vê vindo.</p>
+                    </div>
+                    <div class="card-risco">
+                        <div class="icon-box">10%</div>
+                        <h3>De Rotatividade Desnecessária</h3>
+                        <p>Turnover acelerado por falta de governance de pessoas, desalinhamento estratégico e avaliação preditiva. Cada saída custa: recrutamento, treinamento, perda de conhecimento.</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem; padding: 2rem; background: rgba(0, 184, 148, 0.08); border-left: 4px solid var(--brand-primary); border-radius: 8px;">
+                    <p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.8;">
+                        <strong style="color: var(--brand-primary);">A realidade:</strong> Seus dados estão descentralizados. Seus processos são 70% manuais. Suas equipes sabem que há gargalos, mas não conseguem quantificá-los. E cada trimestre, você vê recursos indo embora que poderiam ter sido capturados.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 2: POR QUE ACONTECE? -->
+        <section class="section-dark">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Por Que as Soluções Genéricas Falham</h2>
+                    <p>Saúde, filantropia e empresas privadas são mundos diferentes. Um dashboard de BI genérico não funciona. Você precisa de arquitetura feita para sua realidade.</p>
+                </div>
+
+                <div class="grid-3">
+                    <div class="card-risco">
+                        <div class="icon-box">❌</div>
+                        <h3>Consultoria de Prateleira</h3>
+                        <p>Implementações genéricas que ignoram a cultura, compliance e complexidade única da sua instituição. Resultado: projeto caro que fica na gaveta.</p>
+                    </div>
+                    <div class="card-risco">
+                        <div class="icon-box">❌</div>
+                        <h3>Ferramentas Sem Contexto</h3>
+                        <p>Softwares que medem atividade, não resultado. Você coleta mais dados, mas toma as mesmas decisões. Tecnologia sem estratégia = despesa, não investimento.</p>
+                    </div>
+                    <div class="card-risco">
+                        <div class="icon-box">❌</div>
+                        <h3>Falta de Execução</h3>
+                        <p>Relatórios lindos que ninguém lê. Recomendações que não saem do papel. Porque faltam agentes de mudança, governança e automação para fazer a diferença.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 3: SOLUÇÕES -->
+        <section id="solucoes" class="section-dark section-dark-divider">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Nossa Arquitetura: 4 Pilares de Alta Performance</h2>
+                    <p>Não é consultoria com boas intenções. É engenharia desenhada para sua realidade institucional.</p>
+                </div>
+
+                <div class="grid-2">
+                    <div class="card-solucao">
+                        <h3>01 | Engenharia Financeira & Governança</h3>
+                        <p>Integração total de dados financeiros descentralizados em um ecossistema único. Visibilidade em tempo real de fluxos, riscos, conformidade e oportunidades de captura de recursos (incentivos fiscais, chamamentos, convênios).</p>
+                        <ul class="check-list">
+                            <li>✓ Mapeamento de riscos de auditoria e compliance</li>
+                            <li>✓ Captura automática de incentivos e recursos</li>
+                            <li>✓ Redução de ciclos de resposta a órgãos reguladores</li>
+                        </ul>
+                    </div>
+
+                    <div class="card-solucao">
+                        <h3>02 | People Analytics & Governança de Pessoas</h3>
+                        <p>Modelagem preditiva de RH: rotatividade, absenteísmo, alinhamento funcional e riscos trabalhistas. Estruturação de metas, OKRs, avaliação por competência e alocação estratégica de capital humano.</p>
+                        <ul class="check-list">
+                            <li>✓ Redução de turnover e passivos com TACs</li>
+                            <li>✓ Maturidade em gestão de desempenho</li>
+                            <li>✓ Mitigação de 80%+ dos riscos detectados</li>
+                        </ul>
+                    </div>
+
+                    <div class="card-solucao">
+                        <h3>03 | Agentes Virtuais & Automação</h3>
+                        <p>Assistentes inteligentes que desoneram a gestão de decisões rotineiras. Seus líderes operacionais ganham 8-12 horas/semana para estratégia. Padronização, velocidade, redução de erros manual.</p>
+                        <ul class="check-list">
+                            <li>✓ Redução de 60-80% no tempo de resposta</li>
+                            <li>✓ Automação de perguntas recorrentes de lideranças</li>
+                            <li>✓ Modelo consultivo escalonável sem adicionar headcount</li>
+                        </ul>
+                    </div>
+
+                    <div class="card-solucao">
+                        <h3>04 | Dashboard & Inteligência Executiva</h3>
+                        <p>Uma única fonte de verdade. Todos os stakeholders veem o mesmo cenário. Indicadores preditivos, não reativos. Governança visual, decisões baseadas em dados.</p>
+                        <ul class="check-list">
+                            <li>✓ Painéis customizados por perfil (Diretoria, RH, Financeiro)</li>
+                            <li>✓ Alertas automáticos para desvios</li>
+                            <li>✓ Exportação em relatórios para reguladores</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 4: CALCULADORA DE IMPACTO -->
+        <section id="impacto" class="section-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Simule o Potencial de Eficiência da Sua Instituição</h2>
+                    <p>Use números reais. Veja o que é possível economizar com automação e governança estratégica.</p>
+                </div>
+
+                <div class="calc-container">
+                    <div class="calc-field">
+                        <label class="calc-label">Folha de Pagamento Mensal</label>
+                        <input type="range" id="range-folha" min="50000" max="2000000" step="50000" value="300000">
+                        <div class="calc-value" id="display-folha">R$ 300.000</div>
+                        <small style="color: var(--brand-slate);">Estimativa: 5% de otimização em gestão de pessoas</small>
+                    </div>
+
+                    <div class="calc-field">
+                        <label class="calc-label">Custo Operacional Mensal</label>
+                        <input type="range" id="range-operacao" min="10000" max="500000" step="10000" value="100000">
+                        <div class="calc-value" id="display-operacao">R$ 100.000</div>
+                        <small style="color: var(--brand-slate);">Estimativa: 15-20% em eficiência de processos</small>
+                    </div>
+
+                    <div class="calc-total">
+                        <div class="calc-total-label">Potencial Anual de Otimização</div>
+                        <div class="calc-total-value" id="calc-total">R$ 234.000</div>
+                        <small style="margin-top: 0.8rem; display: block; opacity: 0.95;">Baseado em premissas conservadoras reais de clientes</small>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem; text-align: center;">
+                    <p style="font-size: 0.9rem; color: var(--brand-slate);">💡 Este é o impacto mensurável. Há também: redução de riscos, conformidade garantida e reputação blindada.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 5: AUTORIDADE -->
+        <section id="equipe" class="section-dark">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Quem Desenha a Solução</h2>
+                    <p>Não é um consultório genérico. É uma dupla com expertise complementar: People Analytics + Financial Engineering + Automação Operacional. Governança de pessoas e dados que funciona.</p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 2.5rem; max-width: 900px; margin: 0 auto;">
+                    <div class="card-autoridade">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Crect fill='%2300B894' width='150' height='150'/%3E%3Ctext x='50%25' y='50%25' font-size='60' fill='white' text-anchor='middle' dy='.3em' font-family='Arial'%3EBP%3C/text%3E%3C/svg%3E" alt="Beatriz Porto">
+                        <h3>Beatriz C. Porto</h3>
+                        <div class="titulo">HRBP Senior • People Analytics • Governance</div>
+                        <p style="text-align: left; font-size: 0.95rem; line-height: 1.7; color: var(--text-secondary);">
+                            15+ anos transformando pessoas e dados em empresas de telecomunicações, indústria pesada e energia. Especialista em modelagem preditiva de RH, estruturação de governance de pessoas e automação com IA.<br><br>
+                            <strong style="color: var(--brand-primary);">✓ Mitigou R$ 330+ mil em passivos trabalhistas</strong><br>
+                            <strong style="color: var(--brand-primary);">✓ Reduziu rotatividade em 10% com People Analytics</strong><br>
+                            <strong style="color: var(--brand-primary);">✓ Pioneira em agentes virtuais (IA) em RH</strong>
+                        </p>
+                    </div>
+
+                    <div class="card-autoridade">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Crect fill='%2300B894' width='150' height='150'/%3E%3Ctext x='50%25' y='50%25' font-size='60' fill='white' text-anchor='middle' dy='.3em' font-family='Arial'%3ETC%3C/text%3E%3C/svg%3E" alt="Thiago Cardoso Porto">
+                        <h3>Thiago Cardoso Porto</h3>
+                        <div class="titulo">Controller • Financial Engineering • Automação Operacional</div>
+                        <p style="text-align: left; font-size: 0.95rem; line-height: 1.7; color: var(--text-secondary);">
+                            15+ anos estruturando operações financeiras no Terceiro Setor (Saúde, Educação, Assistência Social). Especialista em reestruturação financeira, governance corporativa, backoffice e automação de processos. Tech-Driven: Power BI, R/RStudio, Node.js, APIs, Make, Pipedream.<br><br>
+                            <strong style="color: var(--brand-primary);">✓ Reverteu déficit R$ 1,67M → superávit R$ 3,44M (APAE)</strong><br>
+                            <strong style="color: var(--brand-primary);">✓ Expandiu receita de R$ 12M para R$ 18M com conformidade 100%</strong><br>
+                            <strong style="color: var(--brand-primary);">✓ Estruturou controles internos, automação e RelGov desde zero</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem; padding: 2rem; background: rgba(0, 184, 148, 0.08); border-left: 4px solid var(--brand-primary); border-radius: 8px; max-width: 900px; margin-left: auto; margin-right: auto;">
+                    <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.8; text-align: center;">
+                        <strong style="color: var(--brand-primary);">A diferença de Porto:</strong> Enquanto Beatriz governa pessoas com dados, Thiago governa dados com rigor operacional. Juntos: People Analytics + Financial Engineering + Automação = Instituições resilientes, conformes e lucrativas.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 6: PROCESSO -->
+        <section class="section-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Como Começamos</h2>
+                    <p>Sem vendas agressivas. Sem promessas genéricas. Você merece uma conversa honesta sobre seus gargalos.</p>
+                </div>
+
                 <div class="grid-3">
                     <div class="card-risco">
                         <div class="icon-box">01</div>
-                        <h3>Perda de Recursos & Incentivos</h3>
-                        <p>Processos manuais e descentralizados resultam em prazos perdidos para captação de recursos, incentivos fiscais e chamamentos estratégicos, deixando capital valioso na mesa.</p>
+                        <h3>Diagnóstico Estratégico (Gratuito)</h3>
+                        <p>Uma conversa focada com sua liderança. Mapeamos: riscos operacionais, gargalos financeiros, vulnerabilidades em RH, oportunidades de captura.</p>
                     </div>
                     <div class="card-risco">
                         <div class="icon-box">02</div>
-                        <h3>Vulnerabilidade em Auditorias</h3>
-                        <p>Dados financeiros descentralizados dificultam o cumprimento rigoroso do MROSC e expõem a diretoria a riscos de inconformidade.</p>
+                        <h3>Relatório de Viabilidade</h3>
+                        <p>Apresentamos um mapa visual de impacto estimado, sequência de implementação, investimento e timeline. Sem compromisso, você decide se faz sentido.</p>
                     </div>
                     <div class="card-risco">
                         <div class="icon-box">03</div>
-                        <h3>Asfixia Operacional</h3>
-                        <p>Equipes de captação e diretoria dedicam até 40% do seu tempo na triagem de informações que deveriam fluir automaticamente.</p>
-                    </div>
-                </div>
-                    <div class="card-risco">
-                        <div class="icon-box">04</div>
-                        <h3>Passivos Trabalhistas & Turnover</h3>
-                        <p>Desalinhamento funcional e ausência de gestão preditiva geram custos ocultos com rescisões, retrabalho e vulnerabilidade perante fiscalizações e TACs.</p>
+                        <h3>Implementação Piloto</h3>
+                        <p>Começamos por um pilar (People Analytics ou Financial Governance). Você vê resultado em 60-90 dias. Depois, escala para os outros módulos.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Seção 2: Soluções -->
-        <section id="solucoes" class="section-dark">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Arquitetura de Alta Performance</h2>
-                    <p>Soluções técnicas desenhadas sob medida para organizações de impacto e saúde filantrópica.</p>
-                </div>
-                <div class="grid-2">
-                                        <div class="card-solucao">
-                        <h3>People Analytics & Governança de Pessoas</h3>
-                        <p>Modelagem de indicadores preditivos de RH (turnover, absenteísmo e performance). Adequação de quadros funcionais para mitigação de riscos trabalhistas e alinhamento com a estratégia do negócio.</p>
-                        <ul class="check-list">
-                            <li>✓ Mitigação de passivos e custos com TACs.</li>
-                            <li>✓ Estruturação de metas, OKRs e avaliação por competências.</li>
-                        </ul>
-                    </div>
-                    <div class="card-solucao">
-                        <h3>Agentes Virtuais e Automação de Gestão</h3>
-                        <p>Desenvolvimento e implantação de assistentes inteligentes para sanar dúvidas rotineiras de lideranças operacionais, desonerando a gestão para atuar em decisões estratégicas.</p>
-                        <ul class="check-list">
-                            <li>✓ Redução radical no tempo de resposta a líderes.</li>
-                            <li>✓ Padronização do modelo consultivo de tomada de decisão.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Ferramenta Interativa 1: Calculadora de Potencial de Eficiência (versão conservadora) -->
-        <section id="calculadora" class="section-dark section-dark-divider">
-            <div class="container">
-                <div class="section-header section-header-center">
-                    <h2>Calculadora de Potencial de Eficiência</h2>
-                    <p>Mova os marcadores abaixo para estimar o montante que a sua instituição pode economizar por ano com engenharia financeira e reestruturação de dados.</p>
-                </div>
-
-                <div class="calc-wrapper">
-                    <div class="calc-controls">
-                        <div class="calc-input-group">
-                            <label for="range-energia">Custo Mensal com Energia Elétrica</label>
-                            <output id="display-energia" for="range-energia" class="calc-display">R$ 15.000</output>
-                            <input type="range" id="range-energia" min="0" max="100000" step="1000" value="15000">
-                        </div>
-
-                        <div class="calc-input-group">
-                            <label for="range-operacao">Despesas Operacionais / Folha Mensal</label>
-                            <output id="display-operacao" for="range-operacao" class="calc-display">R$ 50.000</output>
-                            <input type="range" id="range-operacao" min="0" max="500000" step="5000" value="50000">
-                        </div>
-                    </div>
-
-                    <div class="calc-result-board">
-                        <h3>Potencial de Economia Anual</h3>
-                        <output id="calc-total-anual" class="calc-total" aria-live="polite">R$ 84.000</output>
-                        <p>Estimativa de economia recorrente combinando redução na conta de energia e racionalização de despesas operacionais.</p>
-                        <p class="calc-premissas">Estimativa conservadora: considera 30% de redução na conta de energia e 5% das despesas operacionais. Não representa garantia de resultado.</p>
-                        <a href="https://wa.me/5541992452780?text=Ol%C3%A1%20Thiago,%20utilizei%20a%20calculadora%20no%20seu%20site%20e%20gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20sobre%20o%20meu%20potencial%20de%20economia." target="_blank" rel="noopener noreferrer" class="btn-primary mt-4">Validar Meu Potencial de Otimização</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Ferramenta Interativa 2: Evolução do Balanço Patrimonial (animação) -->
-        <section id="dashboard" class="section-light">
-            <div class="container">
-                <div class="section-header" style="text-align: center; max-width: 800px; margin: 0 auto 3rem auto;">
-                    <h2>Inteligência Financeira na Prática</h2>
-                    <p>Acompanhe a evolução do balanço patrimonial de 2020 a 2025: ativo total, passivos e patrimônio líquido, ano a ano. É esse tipo de visão contínua que a sua diretoria pode ter para embasar decisões e auditorias.</p>
-                </div>
-
-                <div class="dashboard-wrapper">
-                    <div class="iframe-container">
-                        <iframe title="Evolução do balanço patrimonial 2020–2025" src="evolucao_balanco_2020_2025.html" frameborder="0" loading="lazy"></iframe>
-                    </div>
-                </div>
-
-                <div style="text-align: center; margin-top: 3rem;">
-                    <a href="#contato" target="_blank" rel="noopener noreferrer" class="btn-primary">Quero Este Nível de Controle na Minha Instituição</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção 3: Casos de Sucesso -->
-        <section id="cases" class="section-light" style="padding-top: 2rem;">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Resultados Comprovados em Escala</h2>
-                    <p>Estudos de caso reais de engenharia financeira e viabilização de projetos com recursos a fundo perdido para o Terceiro Setor.</p>
-                </div>
-
-                <!-- Case 01: Complexo Hospitalar de Referência -->
-                <div class="case-card">
-                    <div class="case-header">
-                        <span class="badge-case">Case de Sucesso • Saúde Filantrópica</span>
-                        <h3>Complexo Hospitalar de Referência: -80% na conta de luz com captação de R$ 1,3 Mi via PEE ANEEL/Copel</h3>
-                        <p class="case-subtitle">Projeto concebido, estruturado e executado por Thiago Porto em parceria com empresa de engenharia especializada, em favor do Complexo Hospitalar de Referência (Piraquara/PR).</p>
-                    </div>
-
-                    <div class="case-grid">
-                        <div class="case-column">
-                            <h4>O Desafio & O Papel Executivo</h4>
-                            <p>Atuação direta na concepção, elaboração e execução estratégica. O trabalho envolveu o diagnóstico analítico inicial (2019), o desenho da engenharia financeira para submissão ao PEE (Programa de Eficiência Energética) e a gestão da implantação estrutural da usina.</p>
-
-                            <h4 class="mt-4">O que foi executado</h4>
-                            <ul class="case-list">
-                                <li>Substituição completa do parque de chuveiros elétricos por um sistema solar térmico central (21 chuveiros / 300 banhos por dia).</li>
-                                <li>Implantação de Usina Fotovoltaica (Geração Distribuída) composta por 606 módulos solares.</li>
-                                <li>Enquadramento regulatório e aprovação integral dos recursos a fundo perdido.</li>
-                            </ul>
-                        </div>
-
-                        <div class="case-column case-results">
-                            <h4>Resultados Alcançados</h4>
-                            <div class="result-highlight">
-                                <span class="result-number">R$ 1,3 Mi</span>
-                                <span class="result-label">Captados a fundo perdido aprovados.</span>
-                            </div>
-                            <div class="result-highlight">
-                                <span class="result-number">-80%</span>
-                                <span class="result-label">Redução no consumo.</span>
-                            </div>
-                            <div class="result-highlight">
-                                <span class="result-number">+23 ton</span>
-                                <span class="result-label">Emissões de CO2/ano evitadas.</span>
-                            </div>
-                            <a href="https://www.youtube.com/watch?v=VxQA1CrfF8g" target="_blank" rel="noopener noreferrer" class="btn-outline">Assistir Registro (YouTube) ↗</a>
-                        </div>
-                    </div>
-
-                    <div class="case-replication">
-                        <h4>Replicação do Método Porto</h4>
-                        <p>A arquitetura e o Método Complexo Hospitalar são adaptados para Santas Casas, Instituição Filantrópicas e ILPIs.</p>
-                        <a href="#contato" target="_blank" rel="noopener noreferrer" class="btn-primary mt-4">Solicitar Teste de Elegibilidade</a>
-                    </div>
-                </div>
-
-                <!-- Case 02: Instituição Filantrópica -->
-                <div class="case-card" style="margin-top: 3rem;">
-                    <div class="case-header">
-                        <span class="badge-case">Case de Sucesso • Reestruturação e Turnaround</span>
-                        <h3>Instituição Filantrópica de Referência: Estancamento de Déficit e Crescimento de 600% no Ativo Circulante</h3>
-                        <p class="case-subtitle">Revisão profunda de modelos de negócio, reestruturação operacional e implantação de centros de custo, conduzindo a instituição à geração de superávit.</p>
-                    </div>
-
-                    <div class="case-grid">
-                        <div class="case-column">
-                            <h4>O Desafio & O Papel Executivo</h4>
-                            <p>A instituição operava no escuro: a ausência de centros de custo mascarava um déficit anual de R$ 1,6 milhão no setor de Saúde. O plano de turnaround exigiu mapeamento de fluxos rigoroso.</p>
-
-                            <h4 class="mt-4">O que foi executado</h4>
-                            <ul class="case-list">
-                                <li><strong>Inteligência de Negócios:</strong> Criação de centros de custo e revisão total do modelo.</li>
-                                <li><strong>Redesenho Organizacional:</strong> Mapeamento funcional e renegociação com credores.</li>
-                                <li><strong>Repactuação Governamental B2G:</strong> Avaliação criteriosa do Contrato de Acolhimento resultando num acordo sustentável.</li>
-                            </ul>
-                        </div>
-
-                        <div class="case-column case-results">
-                            <h4>Resultados Alcançados (2025)</h4>
-                            <div class="result-highlight">
-                                <span class="result-number">~600%</span>
-                                <span class="result-label">Crescimento do Ativo Circulante.</span>
-                            </div>
-                            <div class="result-highlight">
-                                <span class="result-number">R$ 1,6 Mi</span>
-                                <span class="result-label">Estancamento de déficit operacional.</span>
-                            </div>
-                            <div class="result-highlight">
-                                <span class="result-number">Zero</span>
-                                <span class="result-label">Ressalvas impeditivas em Auditoria.</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="case-replication" style="margin-top: 3rem;">
-                        <h4>O Seu Caixa Pode Estar Sangrando em Silêncio?</h4>
-                        <p>Muitas organizações do Terceiro Setor e da Saúde operam com déficits invisíveis ou repasses governamentais defasados devido à falta de centros de custo e clareza analítica. Descubra se a sua instituição está deixando recursos na mesa e avalie o potencial oculto de otimização financeira, ganho de escala e reestruturação de contratos.</p>
-                        <a href="#contato" target="_blank" rel="noopener noreferrer" class="btn-primary mt-4">Agendar Diagnóstico de Eficiência Financeira</a>
-                    </div>
-                </div>
-                <!-- Fim do Case 02 -->
-
-                <!-- Case 03: Governança Corporativa e Gestão Preditiva de Pessoas -->
-                <div class="case-card" style="margin-top: 3rem;">
-                    <div class="case-header">
-                        <span class="badge-case">Case de Sucesso • Governança de Pessoas & Cultura</span>
-                        <h3>Multinacional do Setor de Energia: Mitigação de R$ 330 Mil em Passivos e Redução de 10% no Turnover</h3>
-                        <p class="case-subtitle">Estruturação do modelo nacional de HRBP, implementação de IA para suporte gerencial e gestão preventiva de pessoas no Mercado Sul.</p>
-                    </div>
-
-                    <div class="case-grid">
-                        <div class="case-column">
-                            <h4>O Desafio & O Papel Executivo</h4>
-                            <p>Coordenação estratégica das operações de RH atendendo múltiplas unidades regionais com alta exigência operacional. A liderança de Beatriz Porto estruturou a padronização dos processos consultivos em nível Brasil, combinando inteligência de dados, revisão de conformidade trabalhista e aceleração de lideranças.</p>
-
-                            <h4 class="mt-4">O que foi executado</h4>
-                            <ul class="case-list">
-                                <li><strong>Referência em HR Business Partner:</strong> Padronização metodológica do modelo consultivo de gestão de pessoas nacionalmente.</li>
-                                <li><strong>Inovação via Agente Virtual:</strong> Idealização e implantação de assistente inteligente em RH para suporte rápido a líderes.</li>
-                                <li><strong>Auditoria Preventiva e Relações de Trabalho:</strong> Readequação profunda de fluxos para mitigar custos judiciais e passivos decorrentes de TACs.</li>
-                            </ul>
-                        </div>
-
-                        <div class="case-column case-results">
-                            <h4>Resultados Alcançados</h4>
-                            <div class="result-highlight">
-                                <span class="result-number">R$ 330 Mil</span>
-                                <span class="result-label">Economizados em mitigação de custos trabalhistas e adequações a TACs.</span>
-                            </div>
-                            <div class="result-highlight">
-                                <span class="result-number">-10%</span>
-                                <span class="result-label">Redução na taxa de turnover operacional na regional Sul.</span>
-                            </div>
-                            <div class="result-highlight">
-                                <span class="result-number">Escala Nacional</span>
-                                <span class="result-label">Modelo de BP tornado benchmarking corporativo e replicado em nível Brasil.</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="case-replication" style="margin-top: 3rem;">
-                        <h4>Sua Organização Perde Recursos com Passivos Trabalhistas e Rotatividade?</h4>
-                        <p>Assim como o caixa sangra por ineficiência tributária ou de dados, custos com reclamatórias, desmotivação e turnover consomem fatias expressivas do orçamento institucional. Conte com diagnósticos preditivos de capital humano para proteger o patrimônio da sua empresa ou entidade.</p>
-                        <a href="#contato" target="_blank" rel="noopener noreferrer" class="btn-primary mt-4">Agendar Diagnóstico de Gestão de Pessoas</a>
-                    </div>
-                </div>
-                <!-- Fim do Case 03 -->
-            </div>
-        </section>
-
-        <!-- Seção 4: A Liderança (Partners) -->
-        <section id="autoridade" class="section-light">
-            <div class="container">
-                <div class="section-header" style="text-align: center; margin-bottom: 4rem;">
-                    <h2>A Liderança Executiva</h2>
-                    <p>Governança financeira e gestão de talentos operando de forma perfeitamente integrada.</p>
-                </div>
-                
-                <div class="grid-2">
-                    <!-- Partner 1: Thiago -->
-                    <div class="partner-card" style="background: var(--bg-white); border-radius: 12px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; border-top: 4px solid var(--accent-color);">
-                        <img src="LinkedinPhoto.jpg" alt="Thiago Porto" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 3px solid var(--primary-color);">
-                        <h3 style="color: var(--primary-color); font-size: 1.5rem; margin-bottom: 0.2rem;">Thiago Porto</h3>
-                        <p style="color: var(--accent-color); font-weight: 600; font-size: 0.9rem; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px;">Managing Partner | Gov. Financeira e Dados</p>
-                        <p style="text-align: left; font-size: 0.95rem; line-height: 1.6; color: var(--text-dark-muted);">Economista e Diretor Executivo com vasta experiência em reestruturação (<i>Turnaround</i>) do Terceiro Setor. Assumiu a Diretoria do Entidade Filantrópica Socioeducacional e da Instituição Filantrópica de Referência, onde operou a transição de um déficit milionário para um crescimento de 600% no Ativo Circulante. No Complexo Hospitalar de Referência, captou mais de R$ 8 milhões e otimizou os custos fixos operacionais. Lidera a automação de fluxos, integração via APIs e o desenho de Dashboards, protegendo o caixa institucional.</p>
-                    </div>
-
-                    <!-- Partner 2: Beatriz -->
-                    <div class="partner-card" style="background: var(--bg-white); border-radius: 12px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; border-top: 4px solid var(--accent-color);">
-                        <img src="FotoBeatriz.jpg" alt="Beatriz Porto" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 3px solid var(--primary-color);">
-                        <h3 style="color: var(--primary-color); font-size: 1.5rem; margin-bottom: 0.2rem;">Beatriz C. Porto</h3>
-                        <p style="color: var(--accent-color); font-weight: 600; font-size: 0.9rem; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px;">HRBP Senior | Gov. de Pessoas e Cultura</p>
-                        <p style="text-align: left; font-size: 0.95rem; line-height: 1.6; color: var(--text-dark-muted);">Líder de Recursos Humanos com forte atuação em tecnologia, indústria e logística nos setores de Telecomunicações, Indústria Pesada e Energia. Referência nacional na estruturação de HR Business Partner, alia o <i>People Analytics</i> à inovação — liderou a idealização de Agentes Virtuais (IA) em RH. A sua governança preditiva e gestão de mudança mitigou mais de R$ 330 mil em passivos trabalhistas e reduziu em 10% a taxa de rotatividade, garantindo alta performance nas instituições de saúde e acolhimento.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção 5: Contato / CTA Final -->
-                <!-- Seção 5: Formulário de Triagem & Diagnóstico Executivo -->
+        <!-- SEÇÃO 7: FORMULÁRIO FINAL -->
         <section id="contato" class="section-dark" style="padding: 5rem 0; background-color: var(--bg-secondary);">
-            <div class="container" style="max-width: 760px; margin: 0 auto;">
-                <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
-                    <span class="badge" style="color: var(--brand-accent);">Diagnóstico Estratégico</span>
-                    <h2 style="color: #FFFFFF; font-size: 2.2rem; margin-top: 0.5rem;">Solicite uma Avaliação Institucional</h2>
-                    <p style="color: var(--text-secondary); font-size: 1.05rem;">Mapeie os gargalos operacionais, riscos trabalhistas ou assimetrias financeiras da sua organização com a nossa liderança executiva.</p>
+            <div class="container" style="max-width: 700px;">
+                <div class="section-header" style="margin-bottom: 3rem;">
+                    <span class="badge" style="color: var(--brand-primary);">Próximo Passo: 30 Minutos</span>
+                    <h2 style="color: var(--text-primary); font-size: 2.2rem; margin-top: 1rem;">Solicite Seu Diagnóstico Estratégico</h2>
+                    <p style="color: var(--text-secondary); font-size: 1rem;">Vamos mapear o potencial específico da sua instituição e desenhar um plano acionável. Sem custo, sem compromisso.</p>
                 </div>
 
-                <form action="https://formspree.io/f/xaeeoawn" method="POST" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 2.5rem; box-shadow: 0 20px 40px rgba(0,0,0,0.25);">
+                <form action="https://formspree.io/f/xaeeoawn" method="POST">
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
                         <div>
-                            <label style="display: block; color: var(--text-primary); font-size: 0.88rem; margin-bottom: 0.5rem; font-weight: 500;">Seu Nome *</label>
-                            <input type="text" name="Nome" required placeholder="Ex: Roberto Silva" style="width: 100%; padding: 0.85rem 1rem; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.15); background: #0A192F; color: #FFF; font-size: 0.95rem;">
+                            <label>Seu Nome *</label>
+                            <input type="text" name="nome" required placeholder="Ex: Roberto Silva">
                         </div>
                         <div>
-                            <label style="display: block; color: var(--text-primary); font-size: 0.88rem; margin-bottom: 0.5rem; font-weight: 500;">Instituição ou Empresa *</label>
-                            <input type="text" name="Organizacao" required placeholder="Nome da organização" style="width: 100%; padding: 0.85rem 1rem; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.15); background: #0A192F; color: #FFF; font-size: 0.95rem;">
+                            <label>Instituição / Empresa *</label>
+                            <input type="text" name="organizacao" required placeholder="Nome da instituição">
                         </div>
                     </div>
 
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
                         <div>
-                            <label style="display: block; color: var(--text-primary); font-size: 0.88rem; margin-bottom: 0.5rem; font-weight: 500;">E-mail Corporativo *</label>
-                            <input type="email" name="Email" required placeholder="diretoria@empresa.com.br" style="width: 100%; padding: 0.85rem 1rem; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.15); background: #0A192F; color: #FFF; font-size: 0.95rem;">
+                            <label>E-mail Corporativo *</label>
+                            <input type="email" name="email" required placeholder="diretoria@instituicao.com.br">
                         </div>
                         <div>
-                            <label style="display: block; color: var(--text-primary); font-size: 0.88rem; margin-bottom: 0.5rem; font-weight: 500;">WhatsApp / Telefone *</label>
-                            <input type="tel" name="Telefone" required placeholder="(41) 99999-9999" style="width: 100%; padding: 0.85rem 1rem; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.15); background: #0A192F; color: #FFF; font-size: 0.95rem;">
+                            <label>WhatsApp / Telefone *</label>
+                            <input type="tel" name="telefone" required placeholder="(41) 99999-9999">
                         </div>
                     </div>
 
                     <div style="margin-bottom: 1.5rem;">
-                        <label style="display: block; color: var(--text-primary); font-size: 0.88rem; margin-bottom: 0.5rem; font-weight: 500;">Segmento da Organização</label>
-                        <select name="Segmento" style="width: 100%; padding: 0.85rem 1rem; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.15); background: #0A192F; color: #FFF; font-size: 0.95rem;">
+                        <label>Segmento *</label>
+                        <select name="segmento" required>
+                            <option value="">Selecione seu segmento</option>
+                            <option value="Saúde">Saúde (Hospital / Clínica / Lab)</option>
+                            <option value="Filantropia">Filantropia / OSC / Terceiro Setor</option>
                             <option value="Empresa Privada">Empresa Privada</option>
-                            <option value="Saúde (Hospital / Clínica)">Saúde (Hospital / Clínica)</option>
-                            <option value="Filantropia / OSC / Terceiro Setor">Filantropia / OSC / Terceiro Setor</option>
-                            <option value="Outro">Outro segmento</option>
+                            <option value="Outro">Outro</option>
                         </select>
                     </div>
 
                     <div style="margin-bottom: 2rem;">
-                        <label style="display: block; color: var(--text-primary); font-size: 0.88rem; margin-bottom: 0.5rem; font-weight: 500;">Qual é o principal desafio atual da sua gestão?</label>
-                        <textarea name="Desafio" rows="3" placeholder="Ex: Custos operacionais elevados, necessidade de painéis de BI, risco em auditorias, passivos trabalhistas..." style="width: 100%; padding: 0.85rem 1rem; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.15); background: #0A192F; color: #FFF; font-size: 0.95rem; resize: vertical;"></textarea>
+                        <label>Qual é seu maior desafio agora? *</label>
+                        <textarea name="desafio" required placeholder="Ex: Custos operacionais elevados, falta de visibilidade financeira, alta rotatividade de pessoal, riscos em auditoria..."></textarea>
                     </div>
 
-                    <button type="submit" class="btn-primary" style="width: 100%; padding: 1.1rem; font-size: 1rem; font-weight: 700; cursor: pointer; border: none; border-radius: 6px; background-color: var(--brand-accent); color: #0A192F; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s;">
-                        Enviar e Solicitar Contato Executivo
+                    <button type="submit" class="btn-primary" style="width: 100%; padding: 1.1rem; font-size: 1rem; border: none; cursor: pointer;">
+                        Solicitar Diagnóstico Gratuito
                     </button>
-                    
+
                     <div style="text-align: center; margin-top: 1.5rem;">
-                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Prefere contato imediato? <a href="https://wa.me/5541992452780?text=Ol%C3%A1%20Thiago,%20estou%20no%20site%20da%20Porto%20e%20gostaria%20de%20iniciar%20um%20atendimento%20direto." target="_blank" rel="noopener noreferrer" style="color: var(--brand-accent); text-decoration: underline;">Falar diretamente no WhatsApp ↗</a></p>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Prefere contato imediato? 
+                            <a href="https://wa.me/5541992452780?text=Ol%C3%A1%20Beatriz,%20gostaria%20de%20conversar%20sobre%20governança%20e%20People%20Analytics." target="_blank" rel="noopener noreferrer" style="color: var(--brand-primary); text-decoration: underline; font-weight: 600;">Falar no WhatsApp ↗</a>
+                        </p>
                     </div>
                 </form>
             </div>
@@ -399,38 +946,33 @@
         </div>
     </footer>
 
-    <!-- Motor Matemático da Calculadora (versão conservadora) -->
+    <!-- SCRIPT: CALCULADORA -->
     <script>
         const formatarMoeda = (valor) =>
             new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(valor);
 
-        // Premissas conservadoras. Mantenha em sincronia com o texto "Estimativa conservadora..."
-        const FATOR_ENERGIA = 0.30;
-        const FATOR_OPERACAO = 0.05;
-        const MESES_NO_ANO = 12;
-
-        const rangeEnergia = document.getElementById('range-energia');
+        const rangeFolha = document.getElementById('range-folha');
         const rangeOperacao = document.getElementById('range-operacao');
-        const displayEnergia = document.getElementById('display-energia');
+        const displayFolha = document.getElementById('display-folha');
         const displayOperacao = document.getElementById('display-operacao');
-        const calcTotal = document.getElementById('calc-total-anual');
+        const calcTotal = document.getElementById('calc-total');
 
-        const calcularPotencial = () => {
-            const energiaMensal = Number(rangeEnergia.value);
-            const operacaoMensal = Number(rangeOperacao.value);
+        const calcularImpacto = () => {
+            const folha = Number(rangeFolha.value);
+            const operacao = Number(rangeOperacao.value);
 
-            displayEnergia.textContent = formatarMoeda(energiaMensal);
-            displayOperacao.textContent = formatarMoeda(operacaoMensal);
+            displayFolha.textContent = formatarMoeda(folha);
+            displayOperacao.textContent = formatarMoeda(operacao);
 
-            const economiaEnergiaAnual = energiaMensal * FATOR_ENERGIA * MESES_NO_ANO;
-            const economiaOperacaoAnual = operacaoMensal * FATOR_OPERACAO * MESES_NO_ANO;
+            const economiaFolha = (folha * 0.05 * 12);
+            const economiaOperacao = (operacao * 0.175 * 12);
 
-            calcTotal.textContent = formatarMoeda(economiaEnergiaAnual + economiaOperacaoAnual);
+            calcTotal.textContent = formatarMoeda(economiaFolha + economiaOperacao);
         };
 
-        rangeEnergia.addEventListener('input', calcularPotencial);
-        rangeOperacao.addEventListener('input', calcularPotencial);
-        calcularPotencial();
+        rangeFolha.addEventListener('input', calcularImpacto);
+        rangeOperacao.addEventListener('input', calcularImpacto);
+        calcularImpacto();
     </script>
 </body>
 </html>
