@@ -95,6 +95,19 @@
             line-height: 1.1;
         }
 
+                .logo-img {
+            height: 42px;
+            width: auto;
+            max-width: 260px;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.02);
+        }
+
         /* Menu Hamburguer (Mobile) */
         .menu-toggle {
             display: none;
@@ -600,9 +613,7 @@
     <header>
         <nav class="container">
             <a href="#" class="logo-link">
-                <span class="nome">PORTO</span>
-                <span class="divider">|</span>
-                <span class="subtext">Inteligência<br>Institucional</span>
+                <img src="logosite.png" alt="Porto | Inteligência Institucional" class="logo-img">
             </a>
 
             <button class="menu-toggle" id="mobile-menu" aria-label="Abrir Menu">
